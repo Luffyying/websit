@@ -1,0 +1,13 @@
+.list li{
+   height: 40px;
+   width: 100%;
+   margin: 10px;
+
+}
+.comm{
+	padding-left: 20px;
+}
+.comm li{
+	list-style: none;
+	margin: 10px;
+}

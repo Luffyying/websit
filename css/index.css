@@ -1,0 +1,196 @@
+#banner{
+    height: 30%;
+    padding:30px;
+    text-align: center;
+}
+#banner img{
+    width: 40%;
+    height: 40%;
+}
+#about{
+    height: 30%;
+    padding: 30px;
+}
+#about img{
+    height: 100px;
+    width: 100px;
+}
+#myblogs{
+    padding: 30px;
+    overflow: hidden;
+}
+#works {
+    padding: 30px;
+}
+// #works h2{
+//     // float: left;
+//     // color: #a2a3a3;
+//     // font-family: 'PT Sans Narrow', sans-serif;
+//     // font-size: 3.5rem;
+//      font-family: 'Nunito-Bold';
+//     font-size: 4rem;
+//     text-transform: capitalize;
+//     color: #393b3a;
+// }
+h2{
+   font-family: 'Nunito-Bold';
+    font-size: 4rem;
+    text-transform: capitalize;
+    color: #393b3a;
+}
+#myblogs .study{
+    overflow: hidden;
+    padding: 20px;
+}
+#myblogs a{
+    
+    font-family: Arial;
+    cursor: pointer;
+    display:block;
+    background: #393b3a;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+    color: #fff;
+    outline: none;
+    font-weight: 600;
+    border-radius:5px;
+    /*兼容颜色的渐变*/
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+#myblogs a:hover{
+    background:deepskyblue;
+}
+#myblogs .study li{
+    margin-top: 18px;
+    font-size: 2rem;
+    width: 80%;
+
+}
+#myblogs .col{
+        width:50%;
+        //float:left; 
+}
+#myblogs .col h4{
+    font-size: 2rem;
+    margin-top: 10px;
+}
+#works #lists li{
+    float: left;
+    margin-right: 20px;
+}
+#works #lists{
+	margin-top: 10px;
+	float: right;
+}
+#works #lists a.active{
+    color: #fff;
+    background: #279f7c;
+    border-radius: 5px;
+}
+#works #nav{
+	overflow: hidden;
+}
+#works #nav h2{
+    display: inline;
+}
+#works #lists li a{
+	color: #279f7c;
+    font-size: 1.5em;
+    padding: 8px 15px;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+#works #lists li a:hover{
+    color: #fff;
+    background: #279f7c;
+    border-radius: 5px;
+
+}
+#works #blog-list{
+    text-align: center;
+	overflow: hidden;
+}
+#works #blog-list li{
+	float: left;
+	margin: 15px 50px 30px 70px;
+}
+#works .blogs{
+	position: relative;
+	overflow: hidden;
+}
+#works .blog .blog-title{
+    float: left;
+}
+#works .blog .blog-clicked{
+    float: right;
+}
+#works #blog-list{
+	text-align: center;
+}
+#works img{
+	width: 300px;
+	height: 400px;
+}
+#works .mask{
+	width: 300px;
+	height: 400px;
+	background: rgba(39, 159, 124, 0.6);
+	position: absolute;
+	top: 0;
+	text-align: center;
+	line-height: 400px;
+	transform:translateX(-100%);
+	transition:all 0.5s ease-in;
+}
+#works .mask-btn{
+    font-family: 'Nunito-Bold';
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: #393b3a;
+}
+#works .blogs:hover .mask{
+	transform:translateX(0);
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width:1050px){
+    .col{
+        width:50%;
+        float:left;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+@media (max-width:768px){
+  .contact-details input[type="text"], .contact-details textarea {
+        padding: 1em 1em;
+    }
+    .contact-details  textarea {
+        height: 185px;
+    }
+    .contact-details input[type="submit"] {
+        padding: 1em 1em;
+        font-size: 0.96em;
+    }
+}
+@media (max-width:480px){
+    #works #blog-list img{
+        height: 300px;
+        width: 200px;
+    }
+}

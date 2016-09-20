@@ -1,0 +1,110 @@
+#banner{
+	height: 300px;
+	
+}
+.contain{
+	padding-top: 30px;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 80%; 
+	height: 95%
+
+}
+#banner img{
+	
+	width: 100%;
+	height: 100%;
+}
+#content{
+	overflow: hidden;
+	height: 400px;
+	//padding: 2rem 14rem;
+}
+#comment{
+	padding: 0 20px;
+	overflow: hidden;
+}
+#comment li{
+	position: relative;
+	height: 80px;
+	width: 600px;
+	background: #ccc;
+	padding:20px;
+	margin-bottom: 30px;
+}
+#comment img{
+	float: left;
+}
+#comment span{
+	position: absolute;
+	left: 95px;
+}
+#comment p{
+	margin-top: 20px;
+	margin-left: 20px;
+    float: left;
+}
+#comment input[type="text"]{
+	border:0;
+	display: block;
+	width: 30%;
+    padding: 1.5rem 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #000;
+    opacity: 0.5;
+    outline: none;
+    background:#fff;
+    font-weight: 600;
+}
+#comment h1{
+	display: block;
+    margin: -40px 0 10px 0 ;
+    color: #a2a3a3;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 3.5rem;
+}
+#comment textarea{
+	border:0;
+	padding: 1.5rem 1rem;
+	resize: none;
+	height: 130px;
+	width: 50%;
+	outline: none;
+    color: #000;
+    opacity: 0.5;
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+    // .col{
+    //     width:50%;
+    //     float:left;
+    // }
+}
+@media (min-width:1050px){
+    .col{
+        width:50%;
+        float:left;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+@media (max-width:768px){
+  .contact-details  input[type="text"], .contact-details textarea {
+        padding: 1em 1em;
+    }
+    .contact-details  textarea {
+        height: 185px;
+    }
+    .contact-details input[type="submit"] {
+        padding: 1em 1em;
+        font-size: 0.96em;
+    }
+}

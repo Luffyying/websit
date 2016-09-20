@@ -1,0 +1,72 @@
+#content{
+	padding: 10px 20px;
+}
+#content .wrapper{
+	overflow: hidden;
+	padding-top: 20px;
+}
+#content ul{
+	overflow: hidden;
+}
+#content img{
+	height: 250px;
+	width: 430px;
+}
+// #content input{
+// 	position: absolute;
+// 	right: 20px;
+// }
+#content li{
+	float: left;
+	width: 50%;
+	text-align: center;
+	margin-bottom: 20px;
+	//padding: 5px 100px;
+
+}
+#content .read{
+	height: 40px;
+	width: 85px;
+	background: green;
+	color: #fff;
+	border:none;
+	outline: none;
+	opacity: 0.8;
+	border-radius: 5px;
+	float: left;
+	margin-left: 100px;
+	margin-top: 30px;
+
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+    // .col{
+    //     width:50%;
+    //     float:left;
+    // }
+}
+@media (min-width:1050px){
+    .col{
+        width:50%;
+        float:left;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+@media (max-width:768px){
+  .contact-details form input[type="text"], .contact-details form textarea {
+        padding: 1em 1em;
+    }
+    .contact-details form textarea {
+        height: 185px;
+    }
+    .contact-details input[type="submit"] {
+        padding: 1em 1em;
+        font-size: 0.96em;
+    }
+}
