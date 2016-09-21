@@ -48,7 +48,19 @@
           </div>
         </div>
       </div>
-
+       <div class="am-u-sm-12 am-u-md-3">
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <form action="admin/blog" method="get">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field" name="title">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="submit">搜索</button>
+          </span>
+          </div>
+          </form>
+        </div>
+      </div>
       <div class="am-g">
         <div class="am-u-sm-12">
           <form class="am-form">
@@ -80,21 +92,13 @@
               <?php
                 }
               ?>
-
-
               </tbody>
             </table>
             <div class="am-cf">
-              共 15 条记录
+              共 <?php echo count($blogs)?> 条记录
               <div class="am-fr">
                 <ul class="am-pagination">
-                  <li class="am-disabled"><a href="#">«</a></li>
-                  <li class="am-active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">»</a></li>
+                  <?php echo $this->pagination->create_links();?>
                 </ul>
               </div>
             </div>

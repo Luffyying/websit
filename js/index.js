@@ -1,5 +1,13 @@
 require(['jquery','gotop','sendmsg'],function($){
 	$(function(){
+//  waitting
+     $(window).onload = function(){
+          
+     }
+
+
+
+
  //dynamic options      
 		  $('#lists a').on('click',function(){
       		$(this).parent().siblings().children('a').removeClass('active');

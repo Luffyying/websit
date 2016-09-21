@@ -30,7 +30,7 @@
   <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>一些常用模块</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong></div>
       </div>
 
       <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
@@ -272,7 +272,7 @@
 
     <footer class="admin-content-footer">
       <hr>
-      <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+      <p class="am-padding-left">© 2016 Luffy.</p>
     </footer>
   </div>
   <!-- content end -->

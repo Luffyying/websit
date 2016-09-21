@@ -41,19 +41,12 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['admin']='admin/welcome/login';
-$route['admin/login']='admin/welcome/login';
-$route['admin/index']='admin/welcome/index';
-$route['admin/manager_infor']='admin/welcome/manager_infor';
+$route['admin/blog/(:num)'] = 'admin/welcome/mgr_blog/$1';
+$route['admin/comment/(:num)'] = 'admin/welcome/mgr_comment/$1';
 $route['admin/category']='admin/welcome/mgr_category';
 $route['admin/blog']='admin/welcome/mgr_blog';
 $route['admin/comment']='admin/welcome/mgr_comment';
-$route['admin/add_blog'] = 'admin/welcome/add_blog';
-$route['admin/save_blog'] = 'admin/welcome/save_blog';
-$route['admin/delete_blog'] = 'admin/welcome/delete_blog';
-$route['admin/delete_selected_blog'] = 'admin/welcome/delete_selected_blog';
-$route['admin/blog_detial']='admin/welcome/blog_detial';
-$route['admin/delete_comment'] = 'admin/welcome/delete_comment';
-$route['admin/delete_selected_comment'] = 'admin/welcome/delete_selected_comment';
+$route['admin/(:any)'] = 'admin/welcome/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -6,6 +6,12 @@ class Comment_model extends CI_Model {
     	$this->db->order_by('date', 'desc');//排序规则
 		return $this->db->get_where('t_comments', array('blog_id'=> $id))->result();
     }
+    public function get_counts(){
+    	$this->db->select('comment.*');
+		$this->db->from('t_comments comment');
+		$this->db-> where('comment.is_delete', 0);
+    	return $this->db->count_all_results();
+    }
     public function addcomment($data){
     	$this->db->insert('t_comments',$data);
 		$row = $this->db->affected_rows();
@@ -14,9 +20,13 @@ class Comment_model extends CI_Model {
 		}
 		return fasle;
     }
-    public function get_all_comments(){
-    	$this->db->order_by('date','desc');
-    	return $this->db->get_where('t_comments',array('is_delete'=>0))->result();
+    public function  get_all_comments($limit=6, $offset){
+    	$this->db->select('comment.*');
+		$this->db->from('t_comments comment');
+		$this->db->where('comment.is_delete', 0);
+		$this->db->order_by('comment.blog_id', 'desc');
+		$this->db->limit($limit, $offset);
+		return $this->db->get()-> result();
     }
     public function delete($comm_id){
     	$this->db->where('comment_id', $comm_id);

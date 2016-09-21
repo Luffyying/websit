@@ -8,6 +8,24 @@ class Blog_model extends CI_Model {
 		$this->db-> limit(4);//限制查询的条数
 		return $this->db->get('t_blogs')->result();
 	}
+	public function get_counts($title){
+		$this->db->select('blog.*');
+		$this->db->from('t_blogs blog');
+		$this->db-> where('blog.is_delete', 0);
+		if($title){
+			$this -> db -> like('blog.title', $title);
+		}
+		return $this->db->count_all_results();
+	}
+	public function save($title, $clicked, $content, $img, $big_img){
+		$this->db->insert('t_blogs', array(
+			'title' => $title,
+			'clicked' => $clicked,
+			'content' => $content,
+			'img' => $img
+		));
+		return $this -> db -> affected_rows();
+	}
 	public function delete($blog_id){
 		$this->db->where('blog_id', $blog_id);
 		$this->db->update('t_blogs', array(
@@ -25,9 +43,16 @@ class Blog_model extends CI_Model {
 		//update t_blog_category set is_delete=1 where cate_id=4
 		return $this -> db -> affected_rows();
 	}
-	public function get_all_blogs(){
-		$this->db-> order_by('date', 'desc');//排序规则
-		return $this->db->get_where('t_blogs',array('is_delete'=>0))->result();
+	public function get_blogs_by_page($title, $limit=6, $offset=0){
+		$this ->db -> select('blog.*');
+		$this -> db -> from('t_blogs blog');
+		$this -> db -> where('blog.is_delete', 0);
+		if($title){
+			$this->db->like('blog.title', $title);
+		}
+		$this -> db -> order_by('blog.blog_id', 'desc');
+		$this -> db -> limit($limit, $offset);
+		return $this -> db -> get()-> result();
 	}
 	public function get_more_all($count){
 		//$this->db-> order_by('date', 'desc');

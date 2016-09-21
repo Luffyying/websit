@@ -5,7 +5,7 @@ class Welcome extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('comment_model');
-        //$this->load->model('show_model');
+       // $this->load->model('contact_model');
         $this->load->model('contact_model');
         $this->load->model('blog_model');
     }
@@ -31,10 +31,64 @@ class Welcome extends CI_Controller {
     /*
     blog
     */
-    public function mgr_blog(){
-        $blog = $this->blog_model-> get_all_blogs();
+    public function post_blog(){
+        $config['upload_path'] = './upload/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '3076';
+        $config['file_name'] = date("YmdHis") . '_' . rand(10000, 99999);
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload("img"))
+        {
+            $title = htmlspecialchars($this->input->post('title'));
+            //provide the malicious code
+            $clicked = htmlspecialchars($this->input->post('clicked'));
+            $content = htmlspecialchars($this->input->post('content'));
+            $upload_data = $this->upload->data();
+            $this->load->library("image_lib");
+            //压缩小图
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = $upload_data['full_path'];
+            $config['thumb_marker'] = '_thumb';
+            $config['create_thumb'] = TRUE;
+            $config['maintain_ratio'] = TRUE;
+            $config['master_dim'] = 'width';
+            $config['width'] = 330;
+            $config['height'] = 240;
+            $config['maintain_ratio'] = FALSE;
+            $this->image_lib-> initialize($config);
+            $this->image_lib-> resize();
+            $this->image_lib-> clear();
+            $img = 'upload/'.$upload_data['raw_name'] . '_thumb'  . $upload_data['file_ext'];
+
+            $this->load->model('blog_model');
+            $rows = $this->blog_model->save($title, $clicked, $content, $img);
+            if($rows > 0){
+                redirect('admin/blog');
+            }else{
+                echo '发表文章失败';
+            }
+        }else{
+            var_dump($this->upload->display_errors());
+            echo '文件上传失败!';
+        }
+
+
+    }
+    public function mgr_blog($offset=0){
+        /* page config start*/
+        $title = $this->input->get('title');
+        $total_rows = $this->blog_model->get_counts($title);
+        $this->load->library('pagination');
+        $config['base_url'] = 'admin/blog/';
+        $config['total_rows'] = $total_rows;
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $this->pagination->initialize($config);
+        /* page config end*/
+         $blogs = $this->blog_model-> get_blogs_by_page($title, $config['per_page'], $offset);
          $this->load->view('admin/admin_blog', array(
-            'blogs' => $blog
+            'blogs' => $blogs
         ));
     }
     public function add_blog(){
@@ -68,8 +122,17 @@ class Welcome extends CI_Controller {
 /**
 comment 
 */
-   public function mgr_comment(){
-       $com = $this->comment_model-> get_all_comments();
+   public function mgr_comment($offset=0){
+    /* page config start*/
+        $total_rows = $this->comment_model->get_counts();
+        $this->load->library('pagination');
+        $config['base_url'] = 'admin/comment/';
+        $config['total_rows'] = $total_rows;
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $this->pagination->initialize($config);
+        /* page config end*/
+       $com = $this->comment_model-> get_all_comments($config['per_page'], $offset);
          $this->load->view('admin/admin_comm', array(
             'comments' => $com
         ));
@@ -92,48 +155,30 @@ comment
             echo 'fail';
         }
    }
+/**contact
+*/
 
-    public function mgr_category(){
-        $this -> load -> model('blog_category_model');
-        $categories = $this -> blog_category_model -> get_all();
-        $this -> load -> view('admin/admin_category', array(
-            'categories' => $categories
-        ));
 
-    }
-    public function add_category(){
-        $this -> load -> view('admin/add_category');
-
-    }
-    public function save_category(){
-        $cate_name = $this -> input -> post('cate_name');
-        $this -> load -> model('blog_category_model');
-        $rows = $this -> blog_category_model -> save($cate_name);
-        if($rows > 0){
-            redirect('admin/category');
-        }else{
-            echo '添加类型失败!';
-        }
-    }
-    public function delete_category(){
-        $cate_id = $this -> input -> get('cateId');
-        $this -> load -> model('blog_category_model');
-        $rows = $this -> blog_category_model -> delete($cate_id);
+   public function contact(){
+      $contacts = $this->contact_model->get_all();
+      $this->load->view('admin/admin_contact',array('contacts'=>$contacts));
+   }
+   public function delete_contact(){
+        $con_id = $this ->input-> get('contactId');
+        $rows = $this ->contact_model-> delete($con_id);
         if($rows > 0){
             echo 'success';
         }else{
             echo 'fail';
         }
-    }
-    public function delete_selected_category(){
-        $cate_ids = $this -> input -> get('cateIdStr');
-        $this -> load -> model('blog_category_model');
-        $rows = $this -> blog_category_model -> delete_selected($cate_ids);
+   }
+    public function delete_selected_contact(){
+        $contact_ids = $this->input-> get('contactIdStr');
+        $rows = $this->contact_model->delete_selected($contact_ids);
         if($rows > 0){
             echo 'success';
         }else{
             echo 'fail';
         }
-    }
-
+   }
 }

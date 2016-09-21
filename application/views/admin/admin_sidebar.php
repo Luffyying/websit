@@ -10,7 +10,7 @@
                     <li><a href="admin/comment"><span class="am-icon-th"></span> 评论管理<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
                 </ul>
             </li>
-            <li><a href="admin-table.html"><span class="am-icon-table"></span> 留言管理</a></li>
+            <li><a href="admin/contact"><span class="am-icon-table"></span> 留言管理</a></li>
             <li><a href="admin-form.html"><span class="am-icon-pencil-square-o"></span> 管理员管理</a></li>
         </ul>
 

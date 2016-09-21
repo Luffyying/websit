@@ -63,7 +63,7 @@
 
     <footer class="admin-content-footer">
       <hr>
-      <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+      <p class="am-padding-left">© 2016 Luffy.</p>
     </footer>
   </div>
   <!-- content end -->
