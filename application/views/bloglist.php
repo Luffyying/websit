@@ -19,7 +19,7 @@
     		<?php foreach ($blogs as $blog) {?>
     			<li>
     				<img src="<?php echo $blog->img?>" alt="">
-    				<p><?php echo $blog->content?></p>
+    				<p><?php echo $blog->title?></p>
     				<button class='read'><a href='welcome/blog_detial?id=<?php echo $blog->blog_id?>' style='
     				color:#fff'>READ</a></button>
     			</li>

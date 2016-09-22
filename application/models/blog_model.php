@@ -17,7 +17,17 @@ class Blog_model extends CI_Model {
 		}
 		return $this->db->count_all_results();
 	}
-	public function save($title, $clicked, $content, $img, $big_img){
+	public function update($flag,$title, $clicked, $content, $img){
+		$this->db->where('blog_id', $flag);
+		$this->db->update('t_blogs', array(
+			'title' => $title,
+			'clicked' => $clicked,
+			'content' => $content,
+			'img' => $img
+		));
+		return $this -> db -> affected_rows();
+	}
+	public function save($title, $clicked, $content, $img){
 		$this->db->insert('t_blogs', array(
 			'title' => $title,
 			'clicked' => $clicked,
@@ -55,9 +65,12 @@ class Blog_model extends CI_Model {
 		return $this -> db -> get()-> result();
 	}
 	public function get_more_all($count){
-		//$this->db-> order_by('date', 'desc');
-		$this->db-> limit(4);
-		return $this->db->get_where('t_blogs', array('blog_id >'=>$count))-> result();
+		$this->db->select('blog.*');
+		$this->db->from('t_blogs blog');
+		$this->db-> order_by('date', 'desc');
+		$this->db-> limit(4,$count);
+		return $this -> db -> get()-> result();
+		//return $this->db->get_where('t_blogs', array('blog_id >'=>$count))-> result();
 	}
 	public function get_by_category($cate_id){
 		$this->db->order_by('date', 'desc');//排序规则

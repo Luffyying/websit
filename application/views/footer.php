@@ -18,13 +18,13 @@
         </div>
     </div>
     <div id="footertwo">
-    <ul id="icon">
-        <li style='margin-left: 350px'><img src="img/qq.jpg" alt=""> </li>
-        <li><img src="img/weib.jpg" alt=""></li>
-        <li><img src="img/you.jpg" alt=""></li>
-    </ul>
+        
+        <a href='https://github.com/luffyying'><img src="img/newgit.jpg" style='margin-right:70px' alt=""></a>
+        <a href='http://weibo.com/luffyying'><img src="img/nxin.jpg" alt=""></a>
+
     <p>&copy; 2016 <span>Hello.World</span> All rights reserved | Design by <a href="
     https://github.com/luffyying">王婉莹</a></p>
+    <p>黑ICP备16006126号</p>
  </div>
  <!-- <div id="footer">
         <div class="footer-top">

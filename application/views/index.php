@@ -101,7 +101,6 @@
                                 <img src="<?php echo $show->img;?>" alt="">
                                 <div class="blog">
                                     <p class="blog-title"><?php echo $show->title;?></p>
-                                    <span class="blog-clicked"><?php echo $show->clicked;?></span>
                                 </div>
                                 <div class="mask">
                                     <a href='<?php echo $show->url;?>' class="mask-btn">VIEW DETIAL</a><br/>

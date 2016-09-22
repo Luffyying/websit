@@ -6,14 +6,14 @@
             <a href="#header-nav" id="btn-hide" class="btn btn-hide"><span class="glyphicon glyphicon-remove"></span></a>
 			<ul id="header-nav" class="header-nav">
 				<li><a href="welcome/index">Home</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Portfolio</a></li>
+				<li><a href="welcome/index#works">Demo</a></li>
 				<li><a href="welcome/moreblog">Blog</a></li>
+				<li><a href="welcome/index#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
 				<li class="search">
 					<div id='search-box'>
 						<input type="search" id='search-input' 
-						placeholder="Enter your search content">
+						>
 						<button type="submit" id='search-btn'></button>
 					</div>
 				</li>

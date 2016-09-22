@@ -1,0 +1,43 @@
+	/*对于组件绝对不能使用ID，而且依赖性越小越好*/	
+		.dialog-container{
+			/*充满整个div*/
+			position: absolute;
+			top: 50px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+		.dialog-mask{
+			height: 100%;
+			width: 100%;
+			background: #000;
+			opacity: 0.5;
+			filter: alpha(opacity=50);
+			/*兼容IE*/
+		}
+		.dialog-box{
+			width: 400px;
+			height: 300px;
+			background: #fff;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top: -150px;
+			margin-left: -200px;
+			/*left: 50%;
+			top: 50%;
+			_webkit-transform:translate(50%,50%);不用知道宽高，但IE8不支持
+			*/
+		}
+		.dialog-title-box{
+			height: 30px;
+			line-height: 30px;
+			padding: 0 10px;
+			background: #ccc;
+		}
+		.dialog-title{
+			float: left;
+		}
+		.dialog-close-btn{
+			float: right;
+		}

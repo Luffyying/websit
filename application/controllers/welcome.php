@@ -64,6 +64,7 @@ class Welcome extends CI_Controller {
 		//echo 'success';
 	}
     public function moreblog(){
+    	$this->db->order_by('date', 'desc');//排序规则
     	$blog = $this->blog_model->get_all();
     	$data = array(
     		'blogs'=>$blog);
@@ -93,13 +94,13 @@ class Welcome extends CI_Controller {
     public function get_more_shows(){
     	 $this->load->model('show_model');
 		 $cate_id = $this->input->get('cateId');
-		 $count = $this->input->get('count');
+		 $offset = $this->input->get('offset');
 		
 		 if(!$cate_id){
-			$shows = $this->show_model->get_more_all($count);
+			$shows = $this->show_model->get_more_all($offset);
 			echo json_encode($shows);				
 		 }else{
-		 	$shows = $this->show_model->get_more_by_category($cate_id);
+		 	$shows = $this->show_model->get_more_by_category($cate_id,$offset);
 		 	echo json_encode($shows);
 		  }
     }

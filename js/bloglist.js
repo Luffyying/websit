@@ -24,7 +24,7 @@ require(['jquery','gotop','sendmsg'],function($){
 					var blog = data[i];
 					html+='<li>'+
     				'<img src="'+blog.img+'" alt="">'+
-    				'<p>'+blog.content+'</p>'+
+    				'<p>'+blog.title+'</p>'+
     				"<button class='read'>"+"<a href='welcome/blog_detial?id="+blog.blog_id+"'style='color:#fff'>READ</a></button>"+'</li>'
 				}
 				$('.lists').append(html);

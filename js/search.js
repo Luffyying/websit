@@ -1,13 +1,15 @@
 define(['jquery'],function($){
 	$(function(){
-		var flag = true;
+		var flag = false;
 		$('#search-btn').on('click',function(){
 			if(flag){
-				  $('#search-box').animate({width:400});
-			      $('#search-input').show();
+				  $('#search-input').animate({width:0},function(){
+				  	  $('#search-input').css('placeholder',"");
+				  });
+			    
 			}else{
-				$('#search-box').animate({width:30},function(){
-					 $('#search-input').hide();
+				$('#search-input').animate({width:400},function(){
+					  $('#search-input').css('placeholder',"Enter your search content");
 				});
 			   
 			}

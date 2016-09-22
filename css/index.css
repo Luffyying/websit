@@ -15,6 +15,11 @@
     height: 100px;
     width: 100px;
 }
+.blog-title{
+    text-align: center;
+    font-size: 18px;
+    font-family:  'Nunito-Bold';
+}
 #myblogs{
     padding: 30px;
     overflow: hidden;
@@ -69,11 +74,12 @@ h2{
 #myblogs .study li{
     margin-top: 18px;
     font-size: 2rem;
+
     width: 80%;
 
 }
 #myblogs .col{
-        width:50%;
+        width:40%;
         //float:left; 
 }
 #myblogs .col h4{
@@ -169,6 +175,7 @@ h2{
     .col{
         width:50%;
         float:left;
+
     }
 }
 @media (min-width: 1200px) {

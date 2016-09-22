@@ -78,7 +78,7 @@
                                     内容描述
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-10">
-                                    <textarea rows="10" placeholder="请使用富文本编辑插件" name="content"></textarea>
+                                    <textarea rows="10" placeholder="请使用富文本编辑插件" name="contents"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
 <script>
     var editor;
     KindEditor.ready(function (K) {
-        editor = K.create('textarea[name="content"]', {
+        editor = K.create('textarea[name="contents"]', {
             resizeType: 1,
             allowPreviewEmoticons: false,
             allowImageUpload: true,

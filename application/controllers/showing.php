@@ -45,4 +45,7 @@ class Showing extends CI_Controller {
 	public function level2(){
 		$this->load->view('level2');
 	}
+	public function showele(){
+		$this->load->view('showele');
+	}
 }

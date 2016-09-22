@@ -23,10 +23,18 @@ class Contact_model extends CI_Model {
 		}
 		return fasle;
     }
-    public function get_all(){
-    	$this->db->order_by('date', 'desc');
-    	$this->db-> limit(15);
-    	return $this->db->get('t_contacts')->result();
+    public function get_all($limit=6, $offset=0){
+    	$this->db->from('t_contacts contact');
+		$this->db->where('contact.is_delete', 0);
+		$this->db->order_by('contact.contact_id', 'desc');
+		$this->db->limit($limit, $offset);
+		return $this->db->get()-> result();
+    }
+    public function get_counts(){
+    	$this->db->select('contact.*');
+		$this->db->from('t_contacts contact');
+		$this->db->where('contact.is_delete', 0);
+		return $this->db->count_all_results();
     }
     public function delete($contact_id){
 		$this->db->where('contact_id', $contact_id);

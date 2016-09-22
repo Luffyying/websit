@@ -83,7 +83,7 @@
                     <td>
                       <div class="am-btn-toolbar">
                         <div class="am-btn-group am-btn-group-xs">
-                          <button type="button" class="btn-update am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                          <button type="button" data-id="<?php echo $blog->blog_id;?>" class="btn-update am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                           <button type="button" data-id="<?php echo $blog->blog_id;?>" class="btn-delete am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
                         </div>
                       </div>
@@ -129,6 +129,10 @@
   $(function(){
     $('#btn-add').on('click', function(){
       location.href = 'admin/add_blog';
+    });
+    $('.btn-update').on('click',function(){
+        var blogId = $(this).data('id');
+        location.href = 'admin/edit_blog?blog_id='+blogId;
     });
     $('.btn-delete').on('click', function(){
       var that = this;

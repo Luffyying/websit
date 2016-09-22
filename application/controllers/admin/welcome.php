@@ -10,7 +10,8 @@ class Welcome extends CI_Controller {
         $this->load->model('blog_model');
     }
     public function index(){
-        $this->load->view('admin/admin_index');
+        $blogs = $this->blog_model->get_all();
+        $this->load->view('admin/admin_index',array('blogs'=>$blogs));
     }
     public function manager_infor(){
         $this->load->view('admin/admin_infor');
@@ -31,7 +32,8 @@ class Welcome extends CI_Controller {
     /*
     blog
     */
-    public function post_blog(){
+    public function post_blog($flag=0){
+       
         $config['upload_path'] = './upload/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '3076';
@@ -43,7 +45,7 @@ class Welcome extends CI_Controller {
             $title = htmlspecialchars($this->input->post('title'));
             //provide the malicious code
             $clicked = htmlspecialchars($this->input->post('clicked'));
-            $content = htmlspecialchars($this->input->post('content'));
+            $content = $this->input->post('contents');
             $upload_data = $this->upload->data();
             $this->load->library("image_lib");
             //压缩小图
@@ -62,18 +64,25 @@ class Welcome extends CI_Controller {
             $img = 'upload/'.$upload_data['raw_name'] . '_thumb'  . $upload_data['file_ext'];
 
             $this->load->model('blog_model');
-            $rows = $this->blog_model->save($title, $clicked, $content, $img);
-            if($rows > 0){
-                redirect('admin/blog');
+            if($flag ==0){
+                $rows = $this->blog_model->save($title, $clicked, $content, $img);
+                if($rows > 0){
+                    redirect('admin/blog');
+                }else{
+                    echo '发表文章失败';
+                }
             }else{
-                echo '发表文章失败';
+                $rows = $this->blog_model->update($flag,$title, $clicked, $content, $img);
+                 if($rows > 0){
+                    redirect('admin/blog');
+                }else{
+                    echo '发表跟新失败';
+                }
             }
         }else{
-            var_dump($this->upload->display_errors());
-            echo '文件上传失败!';
-        }
-
-
+                var_dump($this->upload->display_errors());
+                echo '文件上传失败!';
+            }
     }
     public function mgr_blog($offset=0){
         /* page config start*/
@@ -90,6 +99,11 @@ class Welcome extends CI_Controller {
          $this->load->view('admin/admin_blog', array(
             'blogs' => $blogs
         ));
+    }
+    public function edit_blog(){
+        $blog_id = $this->input->get('blog_id');
+        $blog = $this->blog_model->get_by_id($blog_id);
+        $this->load->view('admin/edit_blogs',array('blog'=>$blog));
     }
     public function add_blog(){
         $this->load->view('admin/add_blog');
@@ -157,11 +171,18 @@ comment
    }
 /**contact
 */
-
-
-   public function contact(){
-      $contacts = $this->contact_model->get_all();
-      $this->load->view('admin/admin_contact',array('contacts'=>$contacts));
+   public function contact($offset=0){
+        /* page config start*/
+        $total_rows = $this->contact_model->get_counts();
+        $this->load->library('pagination');
+        $config['base_url'] = 'admin/contact/';
+        $config['total_rows'] = $total_rows;
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $this->pagination->initialize($config);
+        /* page config end*/
+         $contacts = $this->contact_model-> get_all($config['per_page'], $offset);
+         $this->load->view('admin/admin_contact',array('contacts'=>$contacts));
    }
    public function delete_contact(){
         $con_id = $this ->input-> get('contactId');

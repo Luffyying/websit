@@ -33,7 +33,7 @@
   <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">文章管理</strong></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">留言管理</strong></div>
       </div>
 
       <hr>
@@ -87,13 +87,7 @@
               共 <?php echo count($contacts)?> 条记录
               <div class="am-fr">
                 <ul class="am-pagination">
-                  <li class="am-disabled"><a href="#">«</a></li>
-                  <li class="am-active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">»</a></li>
+                  <?php echo $this->pagination->create_links();?>
                 </ul>
               </div>
             </div>

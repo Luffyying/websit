@@ -33,7 +33,7 @@
   <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">文章管理</strong></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">评论管理</strong></div>
       </div>
 
       <hr>
@@ -64,13 +64,12 @@
                   <tr>
                     <td><input type="checkbox" data-id="<?php echo $comment->comment_id;?>"/></td>
                     <td><?php echo $comment->comment_id;?></td>
-                    <td><a href="admin/comment_detial?comment_id=<?php echo $comment->comment_id;?>"><?php echo $comment->blog_id;?></a></td>
+                    <td><a href="admin/blog_detial?blog_id=<?php echo $comment->blog_id;?>"><?php echo $comment->blog_id;?></a></td>
                     <td><?php echo $comment->content;?></td>
                     <td><?php echo $comment->date;?></td>
                     <td>
                       <div class="am-btn-toolbar">
                         <div class="am-btn-group am-btn-group-xs">
-                          <button type="button" class="btn-update am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                           <button type="button" data-id="<?php echo $comment->comment_id;?>" class="btn-delete am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
                         </div>
                       </div>

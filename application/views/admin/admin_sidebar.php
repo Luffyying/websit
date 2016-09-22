@@ -11,7 +11,6 @@
                 </ul>
             </li>
             <li><a href="admin/contact"><span class="am-icon-table"></span> 留言管理</a></li>
-            <li><a href="admin-form.html"><span class="am-icon-pencil-square-o"></span> 管理员管理</a></li>
         </ul>
 
     </div>

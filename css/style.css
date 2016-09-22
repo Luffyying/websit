@@ -133,9 +133,10 @@ a{
     float: left;
     margin-right: 40px;
 }
-#icon img{
+#footertwo img{
     height: 40px;
-    width: 40px;
+    width: 50px;
+    margin-top: 60px;
 }
 // #search-input::-moz-placeholder {
 //     color: #ffffff;
@@ -179,8 +180,19 @@ a{
     src:url(../fonts/OpenSans-Regular.ttf) format('truetype');
 }
 #header{
+    // background: url('../img/bg.jpg') no-repeat;
 	height: 75px;
 	margin-top: 2rem;
+}
+.nomore{
+    text-align: center;
+    height: 50;
+    width: 100%;
+    padding:10px;
+    font-family: 'Nunito-Bold';
+    font-size: 20px;
+    color: pink;
+    list-style: none;
 }
 .wrapper{
 	//width: 1170px;
@@ -267,15 +279,16 @@ a{
 	width: 100%;
 }
 #search-input{
-	padding: 5px 10px;
+	//padding: 5px 10px;
 	position: absolute;
 	top: 0;
 	right: 40px;
-	display: none;
+	//display: none;
 	border:none;
 	outline: none;
 	background: #279f7c;
-	width: 60%;
+	//width: 60%;
+    width:0;
 	height: 28px;
 	color: #fff;
 	font-size: 13px;
@@ -286,6 +299,7 @@ a{
 	height: 28px;
 	width: 30px;
 	border: none;
+    filter: alpha(opacity=0);//兼容
 	color: transparent;
 	cursor: pointer;
 	text-align: center;

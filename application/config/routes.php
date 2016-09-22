@@ -43,6 +43,7 @@ $route['404_override'] = '';
 $route['admin']='admin/welcome/login';
 $route['admin/blog/(:num)'] = 'admin/welcome/mgr_blog/$1';
 $route['admin/comment/(:num)'] = 'admin/welcome/mgr_comment/$1';
+$route['admin/contact/(:num)']='admin/welcome/contact/$1';
 $route['admin/category']='admin/welcome/mgr_category';
 $route['admin/blog']='admin/welcome/mgr_blog';
 $route['admin/comment']='admin/welcome/mgr_comment';
